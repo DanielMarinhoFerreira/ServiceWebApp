@@ -1,0 +1,80 @@
+﻿@using ServiceClient
+@model Usuario
+@{
+    ViewData["Title"] = ViewContext?.RouteData?.Values["controller"];
+}
+
+<div class="container-fluid py-2">
+    <div class="row">
+        <div class="col-12">
+            <form asp-controller="Usuario" asp-action="Cadastro" method="post">
+                <div class="card my-4">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <div class="bg-gradient-primary shadow-primary border-radius-lg d-flex">
+                            <div class="m-md-2 d-flex">
+                                <a asp-controller="Home" asp-action="Index" type="submit"
+                                    class="btn btn-warning mb-0 font-16 clickLoading">
+                                    <i class="bi bi-arrow-return-left"></i>
+                                    Voltar
+                                </a>
+                            </div>
+                            <div class="m-md-2 text-left m-lg-2">
+                                <button type="submit" class="btn btn-success mb-0 font-16 clickLoading">
+                                    <i class="bi bi-person-add"></i> Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pb-2">
+                        <div class="row m-lg-2">
+                            <div class="col-md-5">
+                                <div class="input-group input-group-outline mt-3">
+                                    <label class="form-label">Login</label>
+                                    <input type="text" asp-for="@Model.Login"
+                                        class="form-control border border-bottom-sm" required>
+                                </div>
+                                <span asp-validation-for="@Model.Login" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group input-group-outline mt-3">
+                                    <label class="form-label">Senha</label>
+                                    <input type="password" asp-for="@Model.Password"
+                                        class="form-control border border-bottom-sm" required>
+                                </div>
+                                <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="input-group input-group-outline mt-3">
+                                    <label class="form-label">Nome</label>
+                                    <input type="text" asp-for="@Model.Name"
+                                        class="form-control border border-bottom-sm" required>
+                                </div>
+                                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group input-group-outline mt-3">
+                                    <label class="form-label">SobreNome</label>
+                                    <input type="text" asp-for="@Model.Surname"
+                                        class="form-control border border-bottom-sm" required>
+                                </div>
+                                <span asp-validation-for="@Model.Surname" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-5 m-lg-0">
+                                <div class="input-group input-group-outline mt-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" asp-for="@Model.Email"
+                                        class="form-control border border-bottom-sm" required>
+                                </div>
+                                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="~/js/Usuario/Cadastro.js" language="JavaScript" type="text/javascript" asp-append-version="true"></script>
+}

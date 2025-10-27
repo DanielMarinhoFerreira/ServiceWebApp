@@ -1,0 +1,6 @@
+table.dataTable.dtr-inline td.dtr-control::before {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); /* centraliza verticalmente */
+    margin-right: 8px;           /* afasta da esquerda */
+}

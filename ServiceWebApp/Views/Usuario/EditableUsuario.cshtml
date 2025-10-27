@@ -1,0 +1,65 @@
+﻿@using ServiceClient
+@model UsuarioDto
+@{
+    ViewData["Title"] = ViewContext?.RouteData?.Values["controller"];
+}
+
+<div class="container-fluid py-2">
+    <div class="row">
+        <div class="col-12">
+            <form asp-controller="Usuario" asp-action="EditableUsuario" method="post">
+                <div class="card my-4">
+                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <div class="bg-gradient-primary shadow-primary border-radius-lg d-flex">
+                            <div class="m-md-2 d-flex">
+                                <a asp-controller="Home" asp-action="Index" type="submit"
+                                    class="btn btn-warning mb-0 font-16 clickLoading">
+                                    <i class="bi bi-arrow-return-left"></i>
+                                    Voltar
+                                </a>
+                            </div>
+                            <div class="m-md-2 text-left m-lg-2">
+                                <button type="submit" class="btn btn-success mb-0 font-16 clickLoading">
+                                    <i class="bi bi-person-add"></i> Salvar Edição</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pb-2">
+                        <div class="row m-lg-2">
+                            <input type="text" asp-for="@Model.Id" hidden/>
+                            <div class="col-md-5">
+                                <div class="input-group input-group-outline mt-3">
+                                    <label class="form-label">Nome</label>
+                                    <input type="text" asp-for="@Model.Name"
+                                        class="form-control border border-bottom-sm" required>
+                                </div>
+                                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group input-group-outline mt-3">
+                                    <label class="form-label">SobreNome</label>
+                                    <input type="text" asp-for="@Model.Surname"
+                                        class="form-control border border-bottom-sm" required>
+                                </div>
+                                <span asp-validation-for="@Model.Surname" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-5 m-lg-0">
+                                <div class="input-group input-group-outline mt-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" asp-for="@Model.Email"
+                                        class="form-control border border-bottom-sm" required>
+                                </div>
+                                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="~/js/Usuario/Editable.js" language="JavaScript" type="text/javascript" asp-append-version="true"></script>
+}

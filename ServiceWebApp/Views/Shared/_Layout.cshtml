@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ServiceWebApp</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ServiceWebApp.styles.css" asp-append-version="true" />
+    
+    <!-- Include Bootstrap CSS for styling (optional) -->
+    <link id="pagestyle" href="~/css/material-dashboard.css?v=3.2.0" rel="stylesheet" />
+    
+
+    <!-- #region  DataTable -->
+    <link
+        href="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.3.2/b-3.2.4/b-html5-3.2.4/cc-1.0.7/date-1.5.6/kt-2.12.1/r-3.0.5/rg-1.5.2/sc-2.4.3/datatables.min.css"
+        rel="stylesheet" integrity="sha384-lPlmL/WBbYnoVxDfjFADScSBJlu0gkG7dK4zgykb7qSB1LJWnpjk1V5/gD0+MRTj"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ServiceWebApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Cadastro">Cadastro</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+              <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                <div class="input-group input-group-outline">
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - ServiceWebApp - <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </div>
+    </footer>
+
+    @if (TempData["MensagemErro"] != null)
+      {
+        <div class="position-fixed bottom-10 end-1 z-index-2">
+          <div class="toast fade p-2 mt-2 bg-white show" role="alert" aria-live="assertive" id="dangerToast"
+            aria-atomic="true">
+            <div class="toast-header border-0">
+              <i class="material-symbols-rounded text-danger me-2">
+                campaign
+              </i>
+              <span class="me-auto text-gradient text-danger font-weight-bold">Erro</span>
+              <small class="text-body">
+                <script>
+                  document.write(Date.now())
+                </script>
+              </small>
+              <i class="fas fa-times text-md ms-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+            </div>
+            <hr class="horizontal dark m-0">
+            <div class="toast-body">
+              @TempData["MensagemErro"]
+            </div>
+          </div>
+        </div>
+      }
+    
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!--Mascara de campos-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" language="JavaScript"
+      type="text/javascript"></script>
+    
+     <!-- Bootstrap JS + Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/core/popper.min.js" asp-append-version="true"></script>
+    <script src="~/js/plugins/bootstrap-notify.js" asp-append-version="true"></script>
+    <script src="~/js/plugins/perfect-scrollbar.min.js" asp-append-version="true"></script>
+    <script src="~/js/plugins/smooth-scrollbar.min.js" asp-append-version="true"></script>
+    <script src="~/js/plugins/chartjs.min.js" asp-append-version="true"></script>
+
+    <script>
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+      }
+    </script>
+    
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.3.2/b-3.2.4/b-html5-3.2.4/cc-1.0.7/date-1.5.6/kt-2.12.1/r-3.0.5/rg-1.5.2/sc-2.4.3/datatables.min.js"
+        integrity="sha384-3NikM66DNJyh4MXJRN5nsS2YOZeeogWcsudEXB+7Dg3hwVMyQmcflvxNIXBUWvR/"
+        crossorigin="anonymous">
+    </script>
+    
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Home.js" asp-append-version="true"></script>
+
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js" asp-append-version="true"></script>
+
+   <script src="~/js/material-dashboard.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body >
+
+</html >
